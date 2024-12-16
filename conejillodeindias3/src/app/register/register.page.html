@@ -1,0 +1,93 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <ion-card>
+      <ion-card-header>
+        <h2>Información de Registro</h2>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-input
+              formControlName="name"
+              placeholder="Ingrese su nombre"
+            ></ion-input>
+          </ion-item>
+          <div *ngIf="registerForm.get('name')?.invalid && (registerForm.get('name')?.touched || registerForm.get('name')?.dirty)">
+            <ion-text color="danger">El nombre es requerido.</ion-text>
+          </div>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-input
+              formControlName="lastname"
+              placeholder="Ingrese su apellido"
+            ></ion-input>
+          </ion-item>
+          <div *ngIf="registerForm.get('lastname')?.invalid && (registerForm.get('lastname')?.touched || registerForm.get('lastname')?.dirty)">
+            <ion-text color="danger">El apellido es requerido.</ion-text>
+          </div>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-input
+              formControlName="birthdate"
+              type="date"
+              placeholder="Ingrese su fecha de nacimiento"
+            ></ion-input>
+          </ion-item>
+          <div *ngIf="registerForm.get('birthdate')?.invalid && (registerForm.get('birthdate')?.touched || registerForm.get('birthdate')?.dirty)">
+            <ion-text color="danger">La fecha de nacimiento es requerida.</ion-text>
+          </div>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-input
+              formControlName="licensePlate"
+              placeholder="Ingrese su patente"
+            ></ion-input>
+          </ion-item>
+          <div *ngIf="registerForm.get('licensePlate')?.invalid && (registerForm.get('licensePlate')?.touched || registerForm.get('licensePlate')?.dirty)">
+            <ion-text color="danger">La patente es requerida.</ion-text>
+          </div>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-input
+              formControlName="email"
+              placeholder="Ingrese su correo electrónico"
+            ></ion-input>
+          </ion-item>
+          <div *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty)">
+            <ion-text color="danger">El correo es requerido y debe ser válido.</ion-text>
+          </div>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-input
+              formControlName="password"
+              type="password"
+              placeholder="Ingrese su contraseña"
+            ></ion-input>
+          </ion-item>
+          <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty)">
+            <ion-text color="danger">La contraseña es requerida y debe tener al menos 6 caracteres.</ion-text>
+          </div>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button expand="full" shape="round" type="submit" [disabled]="registerForm.invalid" [routerLink]="['/iniciosesion']">Crear Cuenta</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
+    <div *ngIf="registroForm.get('name')?.invalid && (registroForm.get('name')?.touched || registroForm.get('name')?.dirty)">
+      Name is required.
+    </div>
+  
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <div *ngIf="registroForm.get('email')?.invalid && (registroForm.get('email')?.touched || registroForm.get('email')?.dirty)">
+      Valid email is required.
+    </div>
+  
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+    <div *ngIf="registroForm.get('password')?.invalid && (registroForm.get('password')?.touched || registroForm.get('password')?.dirty)">
+      La contraseña es requerida y debe tener al menos 6 caracteres.
+    </div>
+  
+    <ion-button expand="full" shape="round" type="submit" [disabled]="registroForm.invalid">Crear Cuenta</ion-button>
+  </form>
+</ion-content>

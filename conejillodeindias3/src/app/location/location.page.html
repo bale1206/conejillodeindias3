@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="directions-container">
+    <div id="from-geocoder"></div>  
+    <div id="to-geocoder"></div>    
+    <button (click)="handleDirections()">Get Directions</button>
+  </div>
+
+  <div id="map"></div>
+</ion-content>

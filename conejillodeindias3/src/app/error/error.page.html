@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Error</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Error</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <div class="error-container">
+      <ion-icon name="alert-circle-outline" color="danger" style="font-size: 72px;"></ion-icon>
+      <h1>Error</h1>
+      <p>Lo sentimos, ocurrió un error inesperado. Por favor, intenta de nuevo más tarde.</p>
+      <div class="button-container">
+        <ion-button expand="block" color="primary" [routerLink]="['/home']">Volver a Inicio</ion-button>
+        <ion-button expand="block" color="secondary" (click)="retry()">Reintentar</ion-button> 
+      </div>
+    </div>
+  </ion-content>
+</ion-content>

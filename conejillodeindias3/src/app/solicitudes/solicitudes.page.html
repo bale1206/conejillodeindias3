@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Solicitudes de Viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let solicitud of solicitudes">
+      <ion-label>
+        <h2>{{ solicitud.nombrePasajero }}</h2>
+        <p>Destino: {{ solicitud.destino }}</p>
+        <p>Hora: {{ solicitud.hora }}</p>
+        <p>Estado: <strong>{{ solicitud.estado }}</strong></p>
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="aceptarSolicitud(solicitud.id)" color="success">
+          Aceptar
+        </ion-button>
+        <ion-button (click)="rechazarSolicitud(solicitud.id)" color="danger">
+          Rechazar
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>

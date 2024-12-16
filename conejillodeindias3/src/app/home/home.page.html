@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tipo de Usuario
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Seleccione su tipo de usuario</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <strong>Usted es...</strong>
+  </div>
+  <div id="buttons">
+    <div id="left-button">
+      <ion-button (click)="setUserType('pasajero')" [routerLink]="['/login']" fill="outline">Pasajero</ion-button>
+    </div>
+    <div id="right-button">
+      <ion-button (click)="setUserType('conductor')" [routerLink]="['/iniciosesion']" fill="outline">Conductor</ion-button>
+    </div>
+  </div>
+</ion-content>
